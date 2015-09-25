@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
     private int mRightIconWidth;
     private int mRightIconHeight;
 
+    private boolean mShowRedPoint;
     private boolean mShowArrow;
     private Drawable mArrow;
 
@@ -31,6 +33,8 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
 
     private int mItemHeight;
     private int mPadding;
+    private int mRedPointMargin;
+    private int mRedPointWidth;
     private int mBgType;
 
     /**
@@ -243,6 +247,81 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
     }
 
     /**
+     * 设置红点类型
+     *
+     * @param type
+     *            取值为 {@link #RED_POINT_TYPE_NONE}, {@link #RED_POINT_TYPE_DOT}, {@link #RED_POINT_TYPE_NEW}
+     */
+    public void setRedPointType(int type) {
+        switch (type) {
+        case RED_POINT_TYPE_DOT: {
+            // 红点
+            ImageView redPointImage = new ImageView(getContext());
+            redPointImage.setId(R.id.setting_item_red_point);
+            redPointImage.setBackgroundResource(R.drawable.tips_dot);
+            mRedPointMargin = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_dot_margin);
+            mRedPointWidth = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_dot_width);
+
+            LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            lp.rightMargin = mRedPointMargin;
+            lp.addRule(RelativeLayout.LEFT_OF, R.id.setting_item_right_textview);
+            lp.addRule(RelativeLayout.CENTER_VERTICAL);
+            addView(redPointImage, lp);
+
+            // 需要重新计算左右TextView的最大长度
+            mShowRedPoint = true;
+            calucateTextMaxWidth();
+            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
+            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+            break;
+        }
+        case RED_POINT_TYPE_NEW: {
+            // NEW图标
+            ImageView redPointImage = new ImageView(getContext());
+            redPointImage.setId(R.id.setting_item_red_point);
+            redPointImage.setBackgroundResource(R.drawable.tips_new);
+            mRedPointMargin = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_new_margin);
+            mRedPointWidth = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_new_width);
+
+            LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            lp.rightMargin = mRedPointMargin;
+            lp.addRule(RelativeLayout.LEFT_OF, R.id.setting_item_right_textview);
+            lp.addRule(RelativeLayout.CENTER_VERTICAL);
+            addView(redPointImage, lp);
+
+            // 需要重新计算左右TextView的最大长度
+            mShowRedPoint = true;
+            calucateTextMaxWidth();
+            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
+            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+            break;
+        }
+        case RED_POINT_TYPE_NONE: {
+            if (!mShowRedPoint) {
+                return;
+            }
+
+            ImageView redPointImage = (ImageView) findViewById(R.id.setting_item_red_point);
+            if (redPointImage != null) {
+                redPointImage.setVisibility(View.GONE);
+            }
+
+            // 需要重新计算左右TextView的最大长度
+            mShowRedPoint = false;
+            calucateTextMaxWidth();
+            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
+            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+        }
+        default:
+            break;
+        }
+    }
+
+    public void clearRedPoint() {
+        setRedPointType(RED_POINT_TYPE_NONE);
+    }
+
+    /**
      * 是否显示向右的箭头
      * 
      * @param show
@@ -353,11 +432,19 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
                 rightMaxWidth = 0;
             }
 
+            if (mShowRedPoint) {
+                rightMaxWidth += mRedPointMargin + mRedPointWidth;
+            }
+
             mLeftTextViewMaxWidth = contentWidth - rightMaxWidth;
             mRightTextViewMaxWidth = 0;
         } else {
             // 1、需要先扣除左右textview间的padding
             contentWidth -= mPadding;
+            // 如果显示了红点，还要减去红点的padding
+            if (mShowRedPoint) {
+                contentWidth -= mRedPointMargin + mRedPointWidth;
+            }
 
             // 2、先计算左边textview内容全部显示的宽度
             int leftTextViewWidth = 0;

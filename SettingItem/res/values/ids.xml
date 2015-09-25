@@ -4,6 +4,7 @@
     <!-- 设置 -->
     <item name="setting_item_left_textview" type="id"/>
     <item name="setting_item_right_textview" type="id"/>
+    <item name="setting_item_red_point" type="id" />
     <item name="setting_item_textview" type="id"/>
     <item name="setting_item_switch" type="id"/>
 

@@ -7,5 +7,9 @@
     <!-- setting item -->
     <dimen name="setting_item_horizontal_padding">15dp</dimen>
     <dimen name="setting_item_default_height">45dp</dimen>
+    <dimen name="setting_item_red_point_dot_margin">15dp</dimen>
+    <dimen name="setting_item_red_point_dot_width">9dp</dimen>
+    <dimen name="setting_item_red_point_new_margin">6dp</dimen>
+    <dimen name="setting_item_red_point_new_width">35dp</dimen>
 
 </resources>
