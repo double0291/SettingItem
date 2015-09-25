@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 设置 -->
+    <item name="setting_item_left_textview" type="id"/>
+    <item name="setting_item_right_textview" type="id"/>
+    <item name="setting_item_textview" type="id"/>
+    <item name="setting_item_switch" type="id"/>
+
+</resources>

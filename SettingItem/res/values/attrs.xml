@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SettingItem">
+        <attr name="customHeight" format="dimension" />
+        <!-- 表单项的类型，会影响背景selector -->
+        <attr name="bgType">
+            <flag name="none" value="0" />
+            <flag name="single" value="1" />
+            <flag name="top" value="2" />
+            <flag name="middle" value="3" />
+            <flag name="bottom" value="4" />
+        </attr>
+        <attr name="leftText" format="string" />
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftIconWidth" format="dimension" />
+        <attr name="leftIconHeight" format="dimension" />
+        <attr name="rightText" format="string" />
+        <attr name="rightIcon" format="reference" />
+        <attr name="rightIconWidth" format="dimension" />
+        <attr name="rightIconHeight" format="dimension" />
+        <attr name="rightTextLeftPadding" format="dimension" />
+
+        <!-- 是否显示右边的箭头 -->
+        <attr name="showArrow" format="boolean" />
+
+        <!-- 以下属性是FormSwitchItem使用的 -->
+        <attr name="switchText" format="string" />
+        <attr name="switchChecked" format="boolean" />
+    </declare-styleable>
+
+</resources>
