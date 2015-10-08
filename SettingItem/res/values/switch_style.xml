@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="WYStyle" />
+
+    <style name="WYStyle.Switch">
+        <item name="track_on">@drawable/bg_switch_on</item>
+        <item name="track_off">@drawable/bg_switch_off</item>
+        <item name="thumb">@drawable/btn_switcher</item>
+        <item name="thumbTextPadding">12dp</item>
+        <item name="switchMinWidth">50dp</item>
+        <item name="switchPadding">16dp</item>
+        <item name="switchTextAppearance">@style/TextAppearanceSwitch</item>
+    </style>
+
+    <style name="TextAppearanceSwitch">
+        <item name="switch_textColor">?android:attr/textColorPrimary</item>
+        <item name="textColorHighlight">?android:attr/textColorHighlight</item>
+        <item name="textColorHint">?android:attr/textColorHint</item>
+        <item name="textColorLink">?android:attr/textColorLink</item>
+        <item name="switch_textSize">16sp</item>
+    </style>
+</resources>
