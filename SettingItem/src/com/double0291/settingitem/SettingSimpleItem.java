@@ -335,6 +335,7 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
 
             if (mRedPointImage != null) {
                 mRedPointImage.setVisibility(View.GONE);
+                mRedPointImage = null;
             }
 
             // 需要更新右侧UI
@@ -600,6 +601,14 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
                 mRightTextView.setCompoundDrawablePadding(0);
             } else if (mRightIcon == null && !mShowArrow) {
                 mRightTextView.setVisibility(View.GONE);
+                
+                if (mRedPointImage != null) {
+                    LayoutParams rp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+                    rp.rightMargin = mPadding;
+                    rp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                    rp.addRule(RelativeLayout.CENTER_VERTICAL);
+                    mRedPointImage.setLayoutParams(rp);
+                }
             }
         }
     }
