@@ -7,5 +7,7 @@
     <string name="clear">清理红点</string>
     <string name="show_dot">显示红点</string>
     <string name="show_new">显示new</string>
+    <string name="switch_checked">选中</string>
+    <string name="switch_unchecked">取消选中</string>
 
 </resources>

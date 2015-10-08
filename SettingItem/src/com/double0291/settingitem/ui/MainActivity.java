@@ -5,12 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.double0291.settingitem.R;
 import com.double0291.settingitem.SettingItemConstants;
 import com.double0291.settingitem.SettingSimpleItem;
+import com.double0291.settingitem.SettingSwitchItem;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener, OnCheckedChangeListener {
+    SettingSwitchItem mSwitchItem;
+    
     Button mClearBtn, mShowDotBtn, mShowNewBtn;
     SettingSimpleItem mItem1, mItem2, mItem3, mItem4, mItem5, mItem6, mItem7, mItem8, mItem9, mItem10, mItem11,
             mItem12;
@@ -20,6 +26,10 @@ public class MainActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        mSwitchItem = (SettingSwitchItem) findViewById(R.id.switch_item);
+        mSwitchItem.setOnCheckedChangeListener(this);
+        
         mClearBtn = (Button) findViewById(R.id.clear_btn);
         mClearBtn.setOnClickListener(this);
         mShowDotBtn = (Button) findViewById(R.id.show_dot_btn);
@@ -69,6 +79,15 @@ public class MainActivity extends Activity implements OnClickListener {
 
         default:
             break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            Toast.makeText(this, R.string.switch_checked, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, R.string.switch_unchecked, Toast.LENGTH_SHORT).show();
         }
     }
 }
