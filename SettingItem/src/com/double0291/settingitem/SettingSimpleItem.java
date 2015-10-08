@@ -57,6 +57,7 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
 
     private TextView mLeftTextView;
     private TextView mRightTextView;
+    private ImageView mRedPointImage;
 
     private int mItemHeight;
     private int mPadding;
@@ -282,10 +283,14 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
     public void setRedPointType(int type) {
         switch (type) {
         case RED_POINT_TYPE_DOT: {
+            // 清理旧图标
+            if (mRedPointImage != null) {
+                mRedPointImage.setVisibility(View.GONE);
+            }
             // 红点
-            ImageView redPointImage = new ImageView(getContext());
-            redPointImage.setId(R.id.setting_item_red_point);
-            redPointImage.setBackgroundResource(R.drawable.tips_dot);
+            mRedPointImage = new ImageView(getContext());
+            mRedPointImage.setId(R.id.setting_item_red_point);
+            mRedPointImage.setBackgroundResource(R.drawable.tips_dot);
             mRedPointMargin = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_dot_margin);
             mRedPointWidth = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_dot_width);
 
@@ -293,7 +298,7 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
             lp.rightMargin = mRedPointMargin;
             lp.addRule(RelativeLayout.LEFT_OF, R.id.setting_item_right_textview);
             lp.addRule(RelativeLayout.CENTER_VERTICAL);
-            addView(redPointImage, lp);
+            addView(mRedPointImage, lp);
 
             // 需要更新右侧UI
             mShowRedPoint = true;
@@ -301,10 +306,14 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
             break;
         }
         case RED_POINT_TYPE_NEW: {
+            // 清理旧图标
+            if (mRedPointImage != null) {
+                mRedPointImage.setVisibility(View.GONE);
+            }
             // NEW图标
-            ImageView redPointImage = new ImageView(getContext());
-            redPointImage.setId(R.id.setting_item_red_point);
-            redPointImage.setBackgroundResource(R.drawable.tips_new);
+            mRedPointImage = new ImageView(getContext());
+            mRedPointImage.setId(R.id.setting_item_red_point);
+            mRedPointImage.setBackgroundResource(R.drawable.tips_new);
             mRedPointMargin = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_new_margin);
             mRedPointWidth = this.getResources().getDimensionPixelSize(R.dimen.setting_item_red_point_new_width);
 
@@ -312,7 +321,7 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
             lp.rightMargin = mRedPointMargin;
             lp.addRule(RelativeLayout.LEFT_OF, R.id.setting_item_right_textview);
             lp.addRule(RelativeLayout.CENTER_VERTICAL);
-            addView(redPointImage, lp);
+            addView(mRedPointImage, lp);
 
             // 需要更新右侧UI
             mShowRedPoint = true;
@@ -324,9 +333,8 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
                 return;
             }
 
-            ImageView redPointImage = (ImageView) findViewById(R.id.setting_item_red_point);
-            if (redPointImage != null) {
-                redPointImage.setVisibility(View.GONE);
+            if (mRedPointImage != null) {
+                mRedPointImage.setVisibility(View.GONE);
             }
 
             // 需要更新右侧UI
