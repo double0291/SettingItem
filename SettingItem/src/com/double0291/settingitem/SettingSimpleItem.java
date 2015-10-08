@@ -268,11 +268,9 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
             lp.addRule(RelativeLayout.CENTER_VERTICAL);
             addView(redPointImage, lp);
 
-            // 需要重新计算左右TextView的最大长度
+            // 需要更新右侧UI
             mShowRedPoint = true;
-            calucateTextMaxWidth();
-            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
-            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+            updateRightViews();
             break;
         }
         case RED_POINT_TYPE_NEW: {
@@ -289,11 +287,9 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
             lp.addRule(RelativeLayout.CENTER_VERTICAL);
             addView(redPointImage, lp);
 
-            // 需要重新计算左右TextView的最大长度
+            // 需要更新右侧UI
             mShowRedPoint = true;
-            calucateTextMaxWidth();
-            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
-            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+            updateRightViews();
             break;
         }
         case RED_POINT_TYPE_NONE: {
@@ -306,11 +302,9 @@ public class SettingSimpleItem extends RelativeLayout implements SettingItemCons
                 redPointImage.setVisibility(View.GONE);
             }
 
-            // 需要重新计算左右TextView的最大长度
+            // 需要更新右侧UI
             mShowRedPoint = false;
-            calucateTextMaxWidth();
-            mLeftTextView.setMaxWidth(mLeftTextViewMaxWidth);
-            mRightTextView.setMaxWidth(mRightTextViewMaxWidth);
+            updateRightViews();
         }
         default:
             break;
