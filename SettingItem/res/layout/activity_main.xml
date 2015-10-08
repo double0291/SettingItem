@@ -1,20 +1,141 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:setting="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.double0291.settingitem.ui.MainActivity" >
+    android:layout_height="match_parent" >
 
-    <com.double0291.settingitem.SettingSimpleItem
-        android:id="@+id/clean_cache_item"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/gbar_home_white_gray_selector"
-        setting:customHeight="57dp"
-        setting:leftText="@string/setting_clean_cache"
-        setting:rightText="@string/cache_size" />
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.double0291.settingitem.ui.MainActivity" >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/clear_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/clear" />
+
+            <Button
+                android:id="@+id/show_dot_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/show_dot" />
+
+            <Button
+                android:id="@+id/show_new_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="@string/show_new" />
+        </LinearLayout>
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string"
+            setting:rightText="@string/short_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string"
+            setting:rightText="@string/long_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string"
+            setting:rightText="@string/short_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string"
+            setting:rightText="@string/long_string" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string"
+            setting:showArrow="false" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string"
+            setting:showArrow="false" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string"
+            setting:rightText="@string/short_string"
+            setting:showArrow="false" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/short_string"
+            setting:rightText="@string/long_string"
+            setting:showArrow="false" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string"
+            setting:rightText="@string/short_string"
+            setting:showArrow="false" />
+
+        <com.double0291.settingitem.SettingSimpleItem
+            android:id="@+id/item12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gbar_home_white_gray_selector"
+            setting:leftText="@string/long_string"
+            setting:rightText="@string/long_string"
+            setting:showArrow="false" />
+    </LinearLayout>
+
+</ScrollView>

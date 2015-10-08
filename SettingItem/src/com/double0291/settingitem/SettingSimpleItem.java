@@ -13,6 +13,33 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ *
+ * <p>根据设计规范抽出最常用的表单控件，主要用来规范表单控件的规范，如果有特殊要求需要自己实现。可以实现如下布局：
+ * <pre class="prettyprint">
+ *  -----------------------------------------------------
+ * |左边icon| + |左边文字| + |右边icon| + |右边文字| + |箭头| 
+ *  -----------------------------------------------------
+ * </pre>
+ * <p>
+ * 表单自定义属性具体取值范围，请参考attr.xml#FormItem</p>
+ * 设计规范可以参考：<a href="http://isux.oa.com/guide/mqq/vd#519">表单链接</a></br>
+ * 用法举例：
+ * <pre class="prettyprint">
+ * &lt;com.double0291.settingitem.SettingSimpleItem
+ *           android:layout_width="match_parent"
+ *           android:layout_height="wrap_content"
+ *           formItem:bgType="single"
+ *           settingItem:leftIcon="@drawable/test"
+ *           settingItem:leftIconWidth="40dp"
+ *           settingItem:leftIconHeight="40dp"
+ *           settingItem:leftText="清理缓存"
+ *           settingItem:rightIconWidth="30dp"
+ *           settingItem:rightIconHeight="30dp"
+ *           settingItem:rightText="测试内容"
+ *           settingItem:showArrow="true"/&gt;
+ * </pre>
+ */
 public class SettingSimpleItem extends RelativeLayout implements SettingItemConstants {
     private CharSequence mLeftText;
     private Drawable mLeftIcon;

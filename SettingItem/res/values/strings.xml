@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">SettingItem</string>
-    <string name="setting_clean_cache">清除缓存</string>
-    <string name="cache_size">10M</string>
+    <string name="short_string">没包容你</string>
+    <string name="long_string">我包容六月清泉结冰，包容暮老的生命，包容世界的迟疑</string>
+    <string name="clear">清理红点</string>
+    <string name="show_dot">显示红点</string>
+    <string name="show_new">显示new</string>
 
 </resources>
